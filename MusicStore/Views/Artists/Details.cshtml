@@ -1,0 +1,32 @@
+﻿@model OrderApp.Models.Artist
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Artist</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<h2>Albums</h2>
+<ul>
+	@foreach (var album in Model.Albums) {
+		<li>@album.Title</li>
+	}
+</ul>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ArtistID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
